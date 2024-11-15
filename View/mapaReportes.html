@@ -29,21 +29,82 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <!-- Filtro Dropbox -->
-    <div class="mb-3 row justify-content-end">
-        <div class="col-md-4">
-            <label for="filterDropdown" class="form-label">Filtrar por:</label>
-            <select class="form-select" id="filterDropdown" aria-label="Filtro de Ejemplo">
-                <option selected>Seleccionar filtro</option>
-                <option value="1">Tipo de Reporte</option>
-                <option value="2">Más Reciente</option>
-                <option value="3">Ubicación</option>
-                <option value="4">Estado</option>
-            </select>
+    <!-- Sección de Filtros en Cards -->
+    <div class="container mb-4">
+        <div class="row">
+            <!-- Filtro Tipo de Reporte -->
+            <div class="col-md-6 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="filtroDropbox" class="form-label">Filtrar por Tipo de Reporte:</label>
+                        <select class="form-select" id="filtroDropbox" aria-label="Filtro de Ejemplo">
+                            <option selected>Seleccionar opción</option>
+                            <option value="1">Calles en Mal Estado</option>
+                            <option value="2">Averías en el Alumbrado Público</option>
+                            <option value="3">Robo y Vandalismo</option>
+                            <option value="4">Basura en la Vía Pública</option>
+                            <option value="5">Animales Callejeros o Abandonados</option>
+                            <option value="6">Ruido Excesivo y Contaminación Acústica</option>
+                            <option value="7">Obstrucción de la Vía Pública</option>
+                            <option value="8">Problemas en Servicios Públicos</option>
+                            <option value="9">Plagas o Problemas de Salud Pública</option>
+                            <option value="10">Actos Sospechosos o Violación de Seguridad</option>
+                            <option value="11">Problemas en Infraestructura de Parques y Espacios Públicos</option>
+                            <option value="12">Consumo de Drogas o Alcohol en Zonas Públicas</option>
+                            <option value="13">Tráfico y Problemas Vehiculares</option>
+                            <option value="14">Edificaciones o Construcciones Irregulares</option>
+                            <option value="15">Inundaciones o Problemas con Drenajes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro Ubicación -->
+            <div class="col-md-6 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="filtroUbicacion" class="form-label">Filtrar por Ubicación:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="filtroUbicacion"
+                                placeholder="Buscar ubicación..." aria-label="Filtrar por ubicación">
+                            <button class="btn btn-primary" type="button">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro Estado -->
+            <div class="col-md-6 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="filtroEstado" class="form-label">Filtrar por Estado:</label>
+                        <select class="form-select" id="filtroEstado" aria-label="Filtro por Estado">
+                            <option selected>Seleccionar opción</option>
+                            <option value="pend">Pendiente</option>
+                            <option value="prog">En Progreso</option>
+                            <option value="res">Resuelto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro Fecha y Hora -->
+            <div class="col-md-6 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="filtroFechaHora" class="form-label">Ordenar por Fecha y Hora:</label>
+                        <select class="form-select" id="filtroFechaHora" aria-label="Filtro por Fecha y Hora">
+                            <option selected>Seleccionar opción</option>
+                            <option value="asc">Ascendente (Más antiguos primero)</option>
+                            <option value="desc">Descendente (Más recientes primero)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Tabla  -->
+    <!-- Tabla de Reportes -->
     <div class="table-responsive">
         <h2 class="text-center mb-4">Detalle de los Reportes</h2>
         <table class="table table-striped table-bordered">
@@ -59,14 +120,27 @@
             <tbody>
                 <tr>
                     <td>Juan</td>
-                    <td>Choque</td>
+                    <td>Calles en Mal Estado</td>
                     <td>15/11 11:32am</td>
                     <td>Rotonda de la Bandera</td>
-                    <td style="color: #D32F2F; font-weight: bold;">Urgente</td>
+                    <td style="color: #D32F2F; font-weight: bold;">Pendiente</td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>Basura en la Vía Pública</td>
+                    <td>15/11 12:23pm</td>
+                    <td>Parque Central</td>
+                    <td style="color: #FFC107; font-weight: bold;">En Progreso</td>
+                </tr>
+                <tr>
+                    <td>Antonio</td>
+                    <td>Plagas o Problemas de Salud Pública</td>
+                    <td>15/11 12:45pm</td>
+                    <td>Soda El Tamal</td>
+                    <td style="color: #388E3C; font-weight: bold;">Resuelto</td>
                 </tr>
             </tbody>
         </table>
-    </div>
     </div>
 
     <!-- Bootstrap JS -->
