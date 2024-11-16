@@ -43,3 +43,18 @@ header{
     color: #D3D3D3;
 }
 /* Fin Para la barra de navegacion (temporal) */
+
+/* colores botones */
+.btn-custom1 {
+    background-color: #D32F2F; /* Color personalizado */
+    color: white; /* Color del texto */
+}
+
+.btn-custom2 {
+    background-color: #388E3C; /* Color personalizado */
+    color: white; /* Color del texto */
+}
+.btn-custom3 {
+    background-color: #FFC107; /* Color personalizado */
+    color: white; /* Color del texto */
+}
