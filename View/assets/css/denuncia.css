@@ -1,0 +1,85 @@
+body {
+    background-color: #F0F2F5; /* Gris claro */
+}
+
+.navbar {
+    background-color: #1E3A5F; /* Azul oscuro */
+}
+
+.text-primary {
+    color: #1E3A5F !important; /* Azul oscuro */
+}
+
+.card {
+    border: none;
+    background-color: #FFFFFF; /* Blanco */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(30, 58, 95, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card i {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(30, 58, 95, 0.2);
+}
+
+.btn-primary {
+    background-color: #1E3A5F; /* Azul oscuro */
+    border-color: #1E3A5F; /* Azul oscuro */
+}
+
+.btn-primary:hover {
+    background-color: #388E3C; /* Verde */
+    border-color: #388E3C; /* Verde */
+}
+
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.form-control:focus {
+    border-color: #FFC107; /* Amarillo */
+    box-shadow: none;
+}
+
+label {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+h4 {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+::placeholder {
+    color: #A0A4A8; /* Gris medio */
+}
+
+/* Efectos para el collapse */
+.collapse {
+    transition: all 0.3s ease;
+}

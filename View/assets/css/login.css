@@ -1,31 +1,53 @@
 body {
-    background-color: #F0F2F5;
+    background-color: #F0F2F5; /* Gris claro */
 }
 
 .card {
     border: none;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF; /* Blanco */
 }
 
 .text-primary {
-    color: #1E3A5F !important;
+    color: #1E3A5F !important; /* Azul oscuro */
 }
 
 .btn-primary {
-    background-color: #1E3A5F;
-    border-color: #1E3A5F;
+    background-color: #1E3A5F; /* Azul oscuro */
+    border-color: #1E3A5F; /* Azul oscuro */
 }
 
 .btn-primary:hover {
-    background-color: #16324B;
-    border-color: #16324B;
+    background-color: #FFC107; /* Amarillo */
+    border-color: #FFC107; /* Amarillo */
+    color: #1E3A5F; /* Azul oscuro */
 }
 
 a {
-    color: #1E3A5F;
+    color: #1E3A5F; /* Azul oscuro */
 }
 
 a:hover {
-    color: #FFC107;
+    color: #D32F2F; /* Rojo */
     text-decoration: none;
+}
+
+.form-control:focus {
+    border-color: #388E3C; /* Verde */
+    box-shadow: none;
+}
+
+label {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+::placeholder {
+    color: #A0A4A8; /* Gris medio */
+}
+
+.form-control {
+    background-color: #FFFFFF; /* Blanco */
+}
+
+h3 {
+    font-weight: bold;
 }
