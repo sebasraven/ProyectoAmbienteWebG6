@@ -1,53 +1,59 @@
+/* Fondo principal */
 body {
-    background-color: #F0F2F5; /* Gris claro */
+    background-color: #1E3A5F; /* Azul oscuro */
 }
 
+/* Card de login */
 .card {
     border: none;
     background-color: #FFFFFF; /* Blanco */
+    border-radius: 8px;
 }
 
-.text-primary {
-    color: #1E3A5F !important; /* Azul oscuro */
+/* Título */
+h3 {
+    color: #FFFFFF; /* Blanco sobre fondo azul oscuro */
+    font-weight: bold;
 }
 
-.btn-primary {
-    background-color: #1E3A5F; /* Azul oscuro */
-    border-color: #1E3A5F; /* Azul oscuro */
-}
-
-.btn-primary:hover {
-    background-color: #FFC107; /* Amarillo */
-    border-color: #FFC107; /* Amarillo */
-    color: #1E3A5F; /* Azul oscuro */
+/* Labels y textos */
+label, .card-title {
+    color: #FFFFFF; /* Blanco */
 }
 
 a {
-    color: #1E3A5F; /* Azul oscuro */
+    color: #FFC107; /* Amarillo dorado */
 }
 
 a:hover {
-    color: #D32F2F; /* Rojo */
+    color: #D32F2F; /* Rojo oscuro */
     text-decoration: none;
 }
 
+/* Campos de entrada */
+.form-control {
+    background-color: #F0F2F5; /* Gris claro */
+    border: 1px solid #A0A4A8; /* Gris medio */
+}
+
 .form-control:focus {
-    border-color: #388E3C; /* Verde */
+    border-color: #FFC107; /* Amarillo dorado */
     box-shadow: none;
 }
 
-label {
-    color: #1E3A5F; /* Azul oscuro */
-}
-
+/* Placeholder */
 ::placeholder {
     color: #A0A4A8; /* Gris medio */
 }
 
-.form-control {
-    background-color: #FFFFFF; /* Blanco */
+/* Botón "Ingresar" */
+.btn-primary {
+    background-color: #D32F2F; /* Rojo oscuro */
+    border-color: #D32F2F;
+    color: #FFFFFF;
 }
 
-h3 {
-    font-weight: bold;
+.btn-primary:hover {
+    background-color: #B71C1C;
+    border-color: #B71C1C;
 }

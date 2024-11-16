@@ -1,64 +1,68 @@
+/* Fondo principal */
 body {
-    background-color: #F0F2F5; /* Gris claro */
+    background-color: #F0F2F5; /* Gris claro para descanso visual */
 }
 
-.navbar {
+/* Barra de navegación */
+.navbar-brand{
     background-color: #1E3A5F; /* Azul oscuro */
 }
-
-.text-primary {
-    color: #1E3A5F !important; /* Azul oscuro */
+.bg-primary {
+    background-color: #1E3A5F !important; /* Azul oscuro */
 }
 
+/* Textos sobre fondo azul oscuro */
+.navbar-brand, .navbar-nav .nav-link {
+    color: #FFFFFF !important; /* Blanco */
+}
+
+/* Títulos y subtítulos */
+h2, h4 {
+    font-weight: bold;
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+/* Cards */
 .card {
     border: none;
     background-color: #FFFFFF; /* Blanco */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(30, 58, 95, 0.1);
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #555;
-}
-
-.card i {
-    color: #1E3A5F; /* Azul oscuro */
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 0 15px rgba(30, 58, 95, 0.2);
 }
 
+/* Iconos de las cards */
+.card i {
+    color: #FFC107; /* Amarillo dorado para llamar la atención */
+}
+
+/* Botón "Seleccionar" */
 .btn-primary {
-    background-color: #1E3A5F; /* Azul oscuro */
-    border-color: #1E3A5F; /* Azul oscuro */
+    background-color: #D32F2F; /* Rojo oscuro para acciones críticas */
+    border-color: #D32F2F;
+    color: #FFFFFF;
 }
 
 .btn-primary:hover {
-    background-color: #388E3C; /* Verde */
-    border-color: #388E3C; /* Verde */
+    background-color: #B71C1C; /* Más oscuro en hover */
+    border-color: #B71C1C;
 }
 
-.btn-primary:focus {
-    box-shadow: none;
+/* Card seleccionada */
+.card.seleccionada {
+    border: 2px solid #FFC107; /* Amarillo dorado */
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
 }
 
-.container {
-    max-width: 900px;
-}
-
+/* Formulario */
 .form-control:focus {
-    border-color: #FFC107; /* Amarillo */
+    border-color: #FFC107; /* Amarillo dorado */
     box-shadow: none;
 }
 
@@ -66,20 +70,18 @@ label {
     color: #1E3A5F; /* Azul oscuro */
 }
 
-h2 {
-    font-weight: bold;
-    margin-bottom: 40px;
-}
-
-h4 {
-    color: #1E3A5F; /* Azul oscuro */
-}
-
 ::placeholder {
     color: #A0A4A8; /* Gris medio */
 }
 
-/* Efectos para el collapse */
-.collapse {
-    transition: all 0.3s ease;
+/* Botón "Enviar Denuncia" */
+.btn-enviar {
+    background-color: #D32F2F; /* Rojo oscuro */
+    border-color: #D32F2F;
+    color: #FFFFFF;
+}
+
+.btn-enviar:hover {
+    background-color: #B71C1C;
+    border-color: #B71C1C;
 }

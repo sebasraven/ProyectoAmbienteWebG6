@@ -2,81 +2,69 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportico</title>
+    <title>Realizar Denuncia - Aplicación Vecinal</title>
     <!-- Enlace a Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Enlace a Font Awesome para los iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- Enlace a tu archivo CSS -->
-    <link rel="stylesheet" href="denuncia.css">
+    <link rel="stylesheet" href="assets/css/denuncia.css">
 </head>
 <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Reportico</a>
+        <a class="navbar-brand" href="#">Aplicación Vecinal</a>
     </nav>
 
     <!-- Contenido principal -->
     <div class="container mt-5">
-        <h2 class="text-center text-primary mb-4">Realizar Nueva Denuncia</h2>
+        <h2 class="text-center text-primary mb-4">Crear Nueva Denuncia</h2>
         
         <!-- Catálogo de tipos de denuncia (Cards) -->
         <h4 class="text-center mb-4">Selecciona el tipo de denuncia</h4>
-        <div class="row">
+        <div class="row" id="tipoDenuncias">
             <!-- Card 1: Calles en mal estado -->
             <div class="col-md-4 mb-3">
-                <div class="card text-center">
+                <div class="card text-center" id="card1">
                     <div class="card-body">
-                        <i class="fas fa-road fa-3x mb-3" style="color: #1E3A5F;"></i>
+                        <i class="fas fa-road fa-3x mb-3"></i>
                         <h5 class="card-title">Calles en Mal Estado</h5>
                         <p class="card-text">Reporta calles dañadas, baches o problemas en la vía.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#descripcion1">Seleccionar</button>
+                        <button class="btn btn-primary seleccionar-btn" data-target="#formularioDenuncia" data-tipo="Calles en Mal Estado">Seleccionar</button>
                     </div>
                 </div>
             </div>
 
             <!-- Card 2: Averías en el Alumbrado Público -->
             <div class="col-md-4 mb-3">
-                <div class="card text-center">
+                <div class="card text-center" id="card2">
                     <div class="card-body">
-                        <i class="fas fa-lightbulb fa-3x mb-3" style="color: #1E3A5F;"></i>
+                        <i class="fas fa-lightbulb fa-3x mb-3"></i>
                         <h5 class="card-title">Averías en el Alumbrado Público</h5>
                         <p class="card-text">Informa sobre fallas en las luces o postes de alumbrado.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#descripcion2">Seleccionar</button>
+                        <button class="btn btn-primary seleccionar-btn" data-target="#formularioDenuncia" data-tipo="Averías en el Alumbrado Público">Seleccionar</button>
                     </div>
                 </div>
             </div>
 
             <!-- Card 3: Robo y Vandalismo -->
             <div class="col-md-4 mb-3">
-                <div class="card text-center">
+                <div class="card text-center" id="card3">
                     <div class="card-body">
-                        <i class="fas fa-theater-masks fa-3x mb-3" style="color: #1E3A5F;"></i>
+                        <i class="fas fa-user-secret fa-3x mb-3"></i>
                         <h5 class="card-title">Robo y Vandalismo</h5>
                         <p class="card-text">Denuncia incidentes de robo, daños o vandalismo en tu vecindario.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#descripcion3">Seleccionar</button>
+                        <button class="btn btn-primary seleccionar-btn" data-target="#formularioDenuncia" data-tipo="Robo y Vandalismo">Seleccionar</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 4: Basura en la Vía Pública -->
-            <div class="col-md-4 mb-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-trash fa-3x mb-3" style="color: #1E3A5F;"></i>
-                        <h5 class="card-title">Basura en la Vía Pública</h5>
-                        <p class="card-text">Reporta basura acumulada en calles, parques o espacios públicos.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#descripcion4">Seleccionar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Más Cards según lo necesites -->
+            <!-- Agrega más cards según tus necesidades -->
         </div>
 
-        <!-- Formulario para descripción de la denuncia -->
-        <div id="descripcion1" class="collapse mt-4">
+        <!-- Formulario de Denuncia -->
+        <div id="formularioDenuncia" class="mt-4" style="display: none;">
+            <h4 class="text-primary mb-3" id="tituloFormulario">Descripción de la Denuncia</h4>
             <form>
                 <div class="form-group">
                     <label for="descripcion">Descripción</label>
@@ -88,16 +76,23 @@
                     <input type="text" class="form-control" id="ubicacion" placeholder="Ingresa la dirección o ubicación">
                 </div>
 
+                <div class="form-group">
+                    <label for="fotos">Subir Fotos (Opcional)</label>
+                    <input type="file" class="form-control-file" id="fotos" accept="image/*" multiple>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-block">Enviar Denuncia</button>
             </form>
         </div>
-
-        <!-- Otras descripciones con collapse para cada card -->
     </div>
 
-    <!-- Enlaces a Bootstrap JS y jQuery (Opcional para funcionalidades de Bootstrap) -->
+    <!-- Enlaces a Bootstrap JS y jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <!-- Enlace a Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Enlace a Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Tu archivo JavaScript -->
+    <script src="denuncia.js"></script>
 </body>
 </html>
