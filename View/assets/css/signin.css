@@ -1,0 +1,53 @@
+body {
+    background-color: #F0F2F5; /* Gris claro */
+}
+
+.card {
+    border: none;
+    background-color: #FFFFFF; /* Blanco */
+}
+
+.text-primary {
+    color: #1E3A5F !important; /* Azul oscuro */
+}
+
+.btn-success {
+    background-color: #388E3C; /* Verde */
+    border-color: #388E3C; /* Verde */
+}
+
+.btn-success:hover {
+    background-color: #FFC107; /* Amarillo */
+    border-color: #FFC107; /* Amarillo */
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+a {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+a:hover {
+    color: #D32F2F; /* Rojo */
+    text-decoration: none;
+}
+
+.form-control:focus {
+    border-color: #1E3A5F; /* Azul oscuro */
+    box-shadow: none;
+}
+
+label {
+    color: #1E3A5F; /* Azul oscuro */
+}
+
+::placeholder {
+    color: #A0A4A8; /* Gris medio */
+}
+
+.form-control {
+    background-color: #FFFFFF; /* Blanco */
+}
+
+h3 {
+    font-weight: bold;
+}
