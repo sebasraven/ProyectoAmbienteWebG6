@@ -1,18 +1,25 @@
+<?php
+session_start();
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../models/User.php';
+
+$userModel = new User($pdo);
+$usuarios = $userModel->getAllUsers();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Gestionar Usuarios</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
 
 </head>
 
@@ -48,11 +55,11 @@
                     <li class="nav-item me-4">
                         <a class="nav-link" href="ayuda.html">Ayuda</a>
                     </li>
-                    <li class="nav-item me-4"> 
-                        <a class="nav-link" href="gestionarUsuarios.php">Gestionar Usuarios</a> 
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="gestionarUsuarios.php">Gestionar Usuarios</a>
                     </li>
-                    <li class="nav-item me-4"> 
-                        <a class="nav-link" href="gestionarDenuncias.php">Gestionar Reportes</a> 
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="gestionarDenuncias.php">Gestionar Reportes</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -62,7 +69,35 @@
         </div>
     </nav>
 
-
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Gestionar Usuarios</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($usuarios as $usuario): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($usuario['idUsuario']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['Nombre'] . ' ' . $usuario['Apellido']); ?></td>
+                            <td><?php echo htmlspecialchars($usuario['Correo']); ?></td>
+                            <td>
+                                <a href="editarUsuario.php?id=<?php echo $usuario['idUsuario']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="eliminarUsuario.php?id=<?php echo $usuario['idUsuario']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <a href="crearUsuario.php" class="btn btn-primary">Crear Nuevo Usuario</a>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
