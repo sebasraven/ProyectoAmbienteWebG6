@@ -39,7 +39,7 @@ switch ($action) {
             header('Location: index.php?action=login');
             exit;
         }
-        include __DIR__ . '/app/views/dashboard.php';
+        include __DIR__ . '/app/views/home.html';
         break;
         
     default:
