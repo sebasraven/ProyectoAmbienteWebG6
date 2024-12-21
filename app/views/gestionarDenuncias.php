@@ -5,6 +5,11 @@ require_once __DIR__ . '/../models/Denuncia.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/EstadoDenuncia.php';
 
+// Obtener la conexión a la base de datos
+$database = new Database();
+$pdo = $database->getConnection();
+
+// Crear instancias de los modelos con la conexión a la base de datos
 $denunciaModel = new Denuncia($pdo);
 $userModel = new User($pdo);
 $estadoDenunciaModel = new EstadoDenuncia($pdo);

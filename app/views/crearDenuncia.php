@@ -8,6 +8,11 @@ require_once __DIR__ . '/../models/Canton.php';
 require_once __DIR__ . '/../models/TipoDenuncia.php';
 require_once __DIR__ . '/../models/EstadoDenuncia.php';
 
+// Obtener la conexión a la base de datos
+$database = new Database();
+$pdo = $database->getConnection();
+
+// Crear instancias de los modelos con la conexión a la base de datos
 $denunciaModel = new Denuncia($pdo);
 $userModel = new User($pdo);
 $provinciaModel = new Provincia($pdo);
@@ -111,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="DetalleUbicacion">Ubicación</label>
                 <input type="text" class="form-control" id="DetalleUbicacion" name="DetalleUbicacion" required>
             </div>
-            <button type="submit" class="btn btn-primary">Crear Reporte</button>
+            <button type="submit" class="btn btn-primary">Crear Denuncia</button>
         </form>
         <a href="gestionarDenuncias.php" class="btn btn-secondary mt-3">Volver</a>
     </div>

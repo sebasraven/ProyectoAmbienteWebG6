@@ -3,6 +3,11 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../models/User.php';
 
+// Obtener la conexión a la base de datos
+$database = new Database();
+$pdo = $database->getConnection();
+
+// Crear instancia del modelo con la conexión a la base de datos
 $userModel = new User($pdo);
 $usuarios = $userModel->getAllUsers();
 ?>
@@ -13,7 +18,7 @@ $usuarios = $userModel->getAllUsers();
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Usuarios</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">

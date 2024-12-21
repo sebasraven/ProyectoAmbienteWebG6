@@ -3,6 +3,11 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../models/User.php';
 
+// Obtener la conexión a la base de datos
+$database = new Database();
+$pdo = $database->getConnection();
+
+// Crear instancia del modelo con la conexión a la base de datos
 $userModel = new User($pdo);
 $userId = $_GET['id'] ?? null;
 
@@ -47,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Editar Usuario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
