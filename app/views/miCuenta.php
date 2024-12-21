@@ -72,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/miCuenta.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -85,6 +86,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1 class="text-center">Mi Cuenta</h1>
         </div>
     </header>
+
+    <!-- Barra de Navegacion Temporal -->
+    <nav class="navbar navbar-expand-lg navbar-custom mb-4">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-4">
+                        <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="mapaReportes.php">Mapa de Reportes</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="misReportes.php">Mis Reportes</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="miCuenta.php">Mi Cuenta</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="ayuda.html">Ayuda</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="logout.php" class="btn btn-danger btn-lg">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Contenido Principal -->
     <div class="container">

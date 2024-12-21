@@ -46,9 +46,6 @@ $usuarios = $userModel->getAllUsers();
                         <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="denuncia.html">Reportar un Problema</a>
-                    </li>
-                    <li class="nav-item me-4">
                         <a class="nav-link" href="mapaReportes.html">Mapa de Reportes</a>
                     </li>
                     <li class="nav-item me-4">

@@ -50,10 +50,42 @@ $tiposDenuncia = $tipoDenunciaModel->getAllTipos();
 
 <body>
 
-    <header>
-        <div class="container my-5">
-            <h1 class="text-center mb-4">Mis Reportes</h1>
+    <header class="py-3 mb-4">
+        <div class="container text-center">
+            <h1 class="text-center">Mis Reportes</h1>
+        </div>
     </header>
+
+    <!-- Barra de Navegacion Temporal -->
+    <nav class="navbar navbar-expand-lg navbar-custom mb-4">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-4">
+                        <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="mapaReportes.php">Mapa de Reportes</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="misReportes.php">Mis Reportes</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="miCuenta.php">Mi Cuenta</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="ayuda.html">Ayuda</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="logout.php" class="btn btn-danger btn-lg">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Sección de Filtros en Cards -->
     <div class="container mb-4">

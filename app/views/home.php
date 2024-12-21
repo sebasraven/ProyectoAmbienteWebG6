@@ -17,7 +17,7 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- CSS -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -31,15 +31,15 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
     </header>
 
     <!-- Barra de Navegacion Temporal -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom mb-4">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item me-4">
                         <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="denuncia.html">Reportar un Problema</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="mapaReportes.php">Mapa de Reportes</a>
@@ -63,11 +63,19 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
                     <?php endif; ?>
                 </ul>
                 <div class="d-flex">
-                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
+                    <a href="logout.php" class="btn btn-danger btn-lg">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Sección de contenido principal -->
+    <div class="container text-center mb-5">
+        <h2>Bienvenido a ReporTico</h2>
+        <p class="lead">Aquí puedes reportar problemas, ver el mapa de reportes y gestionar tus reportes.</p>
+        <hr class="my-4">
+        <a class="btn btn-custom2 btn-lg" href="misReportes.php" role="button">Reportar un Problema</a>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
