@@ -1,8 +1,8 @@
 <?php
 // signin.php
 session_start();
-//require_once "database.php"; // Archivo donde se establece la conexión (PDO)
 require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/config/database.php";
+require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/models/User.php"; // Asegúrate de incluir el modelo User
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir datos del formulario
@@ -27,13 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $database = new Database();
         $db = $database->getConnection();
 
-        // Verificar si el correo ya existe
-        $query = "SELECT idUsuario FROM Usuarios WHERE Correo = :correo LIMIT 1";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(":correo", $email);
-        $stmt->execute();
+        // Crear instancia del modelo User
+        $userModel = new User($db);
 
-        if ($stmt->rowCount() > 0) {
+        // Verificar si el correo ya existe
+        if ($userModel->findByEmail($email)) {
             echo "Ya existe un usuario con ese correo.";
             exit;
         }
@@ -41,29 +39,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Encriptar la contraseña usando password_hash (lo más recomendable)
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+        // Datos para la creación del usuario
+        $data = [
+            ':idProvincia' => 1,
+            ':idCanton' => 1,
+            ':Nombre' => $name,
+            ':Apellido' => '',
+            ':Correo' => $email,
+            ':Telefono' => '',
+            ':Cedula' => '',
+            ':Password' => $hashedPassword,
+            ':isAdmin' => 0,
+            ':DetalleDireccion' => ''
+        ];
+
         // Insertar el nuevo usuario
-        // Ajusta según tus columnas en la tabla (Apellido, Provincia, Canton, etc.)
-        $insert = "INSERT INTO Usuarios (Nombre, Correo, Password, isAdmin)
-                   VALUES (:nombre, :correo, :clave, 0)";
-
-        $stmt = $db->prepare($insert);
-        $stmt->bindParam(":nombre", $name);
-        $stmt->bindParam(":correo", $email);
-        $stmt->bindParam(":clave", $hashedPassword);
-
-        if ($stmt->execute()) {
-            echo "Registro exitoso. Ahora puedes iniciar sesión.";
-            // Opcional: redirigir a login
-            // header("Location: login.html");
-            // exit;
+        if ($userModel->create($data)) {
+            // Redirigir a la página de inicio de sesión
+            header("Location: login.html");
+            exit;
         } else {
             echo "Error al registrar el usuario.";
         }
-
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 } else {
     echo "Método de solicitud no válido.";
 }
-?>

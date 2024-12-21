@@ -1,22 +1,26 @@
 <?php
 
-class AuthController {
+class AuthController
+{
     private $userModel;
 
-    public function __construct() {
-        global $pdo; // Usamos la conexión global
+    public function __construct($pdo)
+    {
         $this->userModel = new User($pdo);
     }
 
-    public function showLogin() {
+    public function showLogin()
+    {
         include __DIR__ . '/../views/auth/login.php';
     }
 
-    public function showSignIn() {
+    public function showSignIn()
+    {
         include __DIR__ . '/../views/auth/signin.php';
     }
 
-    public function login($postData) {
+    public function login($postData)
+    {
         $correo = $postData['email'] ?? '';
         $password = $postData['password'] ?? '';
 
@@ -40,7 +44,8 @@ class AuthController {
         include __DIR__ . '/../views/auth/login.php';
     }
 
-    public function register($postData) {
+    public function register($postData)
+    {
         $nombreCompleto = $postData['name'] ?? '';
         $correo = $postData['email'] ?? '';
         $password = $postData['password'] ?? '';
@@ -82,7 +87,8 @@ class AuthController {
         include __DIR__ . '/../views/auth/signin.php';
     }
 
-    public function logout() {
+    public function logout()
+    {
         session_destroy();
         header('Location: index.php?action=login');
         exit;
