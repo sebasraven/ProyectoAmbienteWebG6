@@ -1,49 +1,34 @@
-<?php //El front controller (index.php) se encarga de la navegación
+<?php
 session_start();
 
-require_once __DIR__ . '/app/config/database.php'; // Contiene la conexión $pdo
-require_once __DIR__ . '/app/models/User.php';
-require_once __DIR__ . '/app/controllers/AuthController.php';
+// Si el usuario ya inició sesión (por ejemplo, si existe idUsuario en $_SESSION),
+// se redirige directamente a home.html
+//if (isset($_SESSION["idUsuario"])) {
+//    header("Location: index.php");
+//    exit;
+//}
+?>
 
-// Determina la acción en base al query param 'action'
-$action = $_GET['action'] ?? null;
-$controller = new AuthController();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportico - Inicio</title>
+    <!-- Enlaces a Bootstrap u otro framework si lo deseas -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 
-// Rutas simples de ejemplo
-switch ($action) {
-    case 'login':
-        // Proceso de login (POST)
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $controller->login($_POST);
-        } else {
-            $controller->showLogin();
-        }
-        break;
-        
-    case 'signin':
-        // Proceso de registro (POST)
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $controller->register($_POST);
-        } else {
-            $controller->showSignIn();
-        }
-        break;
-        
-    case 'logout':
-        $controller->logout();
-        break;
-        
-    case 'dashboard':
-        // Verificar sesión
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?action=login');
-            exit;
-        }
-        include __DIR__ . '/app/views/home.html';
-        break;
-        
-    default:
-        // Por defecto redirigir al login
-        header('Location: index.php?action=login');
-        break;
-}
+<div class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="text-center mb-4">
+        <h1>¡Bienvenido a Reportico!</h1>
+        <p>Gestiona tus denuncias de manera ágil y segura.</p>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="app\views\login.html" class="btn btn-primary mr-2">Iniciar Sesión</a>
+        <a href="app\views\signin.html" class="btn btn-success">Registrarse</a>
+    </div>
+</div>
+
+</body>
+</html>
