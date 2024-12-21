@@ -1,0 +1,12 @@
+PARA CORRER:
+
+1-PONER EL FOLDER DE ESTE PROYECTO DENTRO DE C:\xampp\htdocs 
+
+2-CREAR LA BASE DE DATOS (EL ARCHIVO DEL EXPORT DE LA BASE DE DATOS ES denunciasdb.sql. 
+TAMBIEN DENTRO DE app/config se encuenyta databaseMode.sql el cual es la estructura de las tablas) 
+
+3-ENTRAR A http://localhost/ProyectoAmbienteWebG6/ PARA INGRESAR A LA APLICACION WEB
+
+
+EL USUARIO lolsebasxd@gmail.com y el usuario admin@gmail.com SON ADMIN Y TIENEN DE PASSWORD admin
+LAS DEMAS PASSWORDS SON 123, PERO SE PUEDEN MODIFICAR COMO ADMIN
