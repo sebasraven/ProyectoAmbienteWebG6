@@ -68,7 +68,7 @@ $usuarios = $userModel->getAllUsers();
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a class="btn btn-primary" href="login.html">Login / Registrarse</a>
+                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
                 </div>
             </div>
         </div>

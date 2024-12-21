@@ -63,7 +63,7 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
                     <?php endif; ?>
                 </ul>
                 <div class="d-flex">
-                    <a class="btn btn-primary" href="login.html">Login / Registrarse</a>
+                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
