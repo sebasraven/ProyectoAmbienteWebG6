@@ -1,10 +1,17 @@
+<?php
+session_start();
+
+// Verifica si el usuario está logueado y si es administrador
+$isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ReporTico</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,8 +19,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-
 </head>
 
 <body>
@@ -31,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item me-4">
-                        <a class="nav-link" aria-current="page" href="home.html">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="denuncia.html">Reportar un Problema</a>
@@ -48,12 +53,14 @@
                     <li class="nav-item me-4">
                         <a class="nav-link" href="ayuda.html">Ayuda</a>
                     </li>
-                    <li class="nav-item me-4"> 
-                        <a class="nav-link" href="gestionarUsuarios.php">Gestionar Usuarios</a> 
-                    </li>
-                    <li class="nav-item me-4"> 
-                        <a class="nav-link" href="gestionarDenuncias.php">Gestionar Reportes</a> 
-                    </li>
+                    <?php if ($isAdmin): ?>
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="gestionarUsuarios.php">Gestionar Usuarios</a>
+                        </li>
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="gestionarDenuncias.php">Gestionar Reportes</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
                 <div class="d-flex">
                     <a class="btn btn-primary" href="login.html">Login / Registrarse</a>
@@ -61,8 +68,6 @@
             </div>
         </div>
     </nav>
-
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

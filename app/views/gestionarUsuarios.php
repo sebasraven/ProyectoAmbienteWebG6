@@ -43,7 +43,7 @@ $usuarios = $userModel->getAllUsers();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item me-4">
-                        <a class="nav-link" aria-current="page" href="home.html">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="denuncia.html">Reportar un Problema</a>

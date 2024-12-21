@@ -39,8 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["Correo"] = $user["Correo"];
                 $_SESSION["isAdmin"] = $user["isAdmin"]; 
 
-                // Redirigir a home.html
-                header("Location: home.html");
+                // Redirigir a home
+                header("Location: home.php");
                 exit;
             } else {
                 // Contraseña incorrecta
