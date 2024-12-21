@@ -30,9 +30,10 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
         </div>
     </header>
 
-    <!-- Barra de Navegacion Temporal -->
+    <!-- Barra de Navegacion -->
     <nav class="navbar navbar-expand-lg navbar-custom mb-4">
         <div class="container">
+            <a class="navbar-brand" href="home.php">ReporTico</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,12 +70,44 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
         </div>
     </nav>
 
-    <!-- Sección de contenido principal -->
+    <!-- Sección de Bienvenida -->
     <div class="container text-center mb-5">
         <h2>Bienvenido a ReporTico</h2>
-        <p class="lead">Aquí puedes reportar problemas, ver el mapa de reportes y gestionar tus reportes.</p>
+        <p class="lead">Gestiona tus denuncias de manera eficiente y sencilla.</p>
         <hr class="my-4">
         <a class="btn btn-custom2 btn-lg" href="misReportes.php" role="button">Reportar un Problema</a>
+    </div>
+
+    <!-- Sección de Información -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info-box p-4 bg-light rounded">
+                    <h4>¿Cómo funciona ReporTico?</h4>
+                    <p>ReporTico te permite reportar incidencias en tu comunidad de manera rápida y eficiente.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box p-4 bg-light rounded">
+                    <h4>Mapa de Reportes</h4>
+                    <p>Visualiza todas las incidencias reportadas por otros usuarios.</p>
+                    <a class="btn btn-custom3" href="mapaReportes.php" role="button">Ver Mapa</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box p-4 bg-light rounded">
+                    <h4>Gestión de Reportes</h4>
+                    <p>Revisa y gestiona todos tus reportes desde tu cuenta personal.</p>
+                    <a class="btn btn-custom2" href="misReportes.php" role="button">Gestionar Reportes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <div class="container text-center mb-5">
+        <h3>¿Tienes alguna pregunta?</h3>
+        <p class="lead">Consulta nuestra <a href="ayuda.html">sección de ayuda</a> para más información.</p>
     </div>
 
     <!-- Bootstrap JS -->
