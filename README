@@ -3,7 +3,7 @@ PARA CORRER:
 1-PONER EL FOLDER DE ESTE PROYECTO DENTRO DE C:\xampp\htdocs 
 
 2-CREAR LA BASE DE DATOS (EL ARCHIVO DEL EXPORT DE LA BASE DE DATOS ES denunciasdb.sql. 
-TAMBIEN DENTRO DE app/config se encuenyta databaseMode.sql el cual es la estructura de las tablas) 
+TAMBIEN DENTRO DE app/config se encuentra databaseMode.sql el cual es la estructura de las tablas) 
 
 3-ENTRAR A http://localhost/ProyectoAmbienteWebG6/ PARA INGRESAR A LA APLICACION WEB
 
