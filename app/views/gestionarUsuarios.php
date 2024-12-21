@@ -46,10 +46,10 @@ $usuarios = $userModel->getAllUsers();
                         <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="mapaReportes.html">Mapa de Reportes</a>
+                        <a class="nav-link" href="mapaReportes.php">Mapa de Reportes</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="misReportes.html">Mis Reportes</a>
+                        <a class="nav-link" href="misReportes.php">Mis Reportes</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="miCuenta.php">Mi Cuenta</a>
