@@ -3,6 +3,8 @@ session_start();
 require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/config/database.php";
 require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/models/Denuncia.php";
 require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/models/TipoDenuncia.php";
+require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/models/User.php";
+require_once "C:/xampp/htdocs/ProyectoAmbienteWebG6/app/models/EstadoDenuncia.php";
 
 // Verifica si el usuario está logueado
 if (!isset($_SESSION['idUsuario'])) {
@@ -14,9 +16,11 @@ if (!isset($_SESSION['idUsuario'])) {
 $database = new Database();
 $pdo = $database->getConnection();
 
-// Crear instancia del modelo Denuncia
+// Crear instancias de los modelos
 $denunciaModel = new Denuncia($pdo);
 $tipoDenunciaModel = new TipoDenuncia($pdo);
+$userModel = new User($pdo);
+$estadoDenunciaModel = new EstadoDenuncia($pdo);
 
 // Obtener los filtros
 $tipoReporte = $_GET['tipoReporte'] ?? null;
@@ -49,6 +53,7 @@ $tiposDenuncia = $tipoDenunciaModel->getAllTipos();
 
 <body>
 
+    <!-- Encabezado -->
     <header class="py-3 mb-4">
         <div class="container text-center">
             <h1 class="text-center">Mapa de Reportes</h1>
@@ -174,12 +179,16 @@ $tiposDenuncia = $tipoDenunciaModel->getAllTipos();
             </thead>
             <tbody>
                 <?php foreach ($denuncias as $denuncia): ?>
+                    <?php
+                    $usuario = $userModel->getUserById($denuncia['idUsuario']);
+                    $estado = $estadoDenunciaModel->getEstadoById($denuncia['idEstadoDenuncia']);
+                    ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($denuncia['idUsuario']); ?></td>
+                        <td><?php echo htmlspecialchars($usuario['Nombre'] . ' ' . $usuario['Apellido']); ?></td>
                         <td><?php echo htmlspecialchars($denuncia['DescripcionDenuncia']); ?></td>
                         <td><?php echo htmlspecialchars($denuncia['Fecha']); ?></td>
                         <td><?php echo htmlspecialchars($denuncia['DetalleUbicacion']); ?></td>
-                        <td><?php echo htmlspecialchars($denuncia['idEstadoDenuncia']); ?></td>
+                        <td><?php echo htmlspecialchars($estado['NombreDenuncia']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
