@@ -49,25 +49,26 @@ class Denuncia
         return $stmt->execute([':id' => $id]);
     }
 
-    public function getDenunciasByUserWithFilters($idUsuario, $tipoReporte = null, $ubicacion = null, $estado = null, $fechaHora = null) {
+    public function getDenunciasByUserWithFilters($idUsuario, $tipoReporte = null, $ubicacion = null, $estado = null, $fechaHora = null)
+    {
         $query = "SELECT * FROM Denuncias WHERE idUsuario = :idUsuario";
         $params = [':idUsuario' => $idUsuario];
-    
+
         if ($tipoReporte) {
             $query .= " AND idTipoDenuncia = :idTipoDenuncia";
             $params[':idTipoDenuncia'] = $tipoReporte;
         }
-    
+
         if ($ubicacion) {
             $query .= " AND DetalleUbicacion LIKE :ubicacion";
             $params[':ubicacion'] = "%$ubicacion%";
         }
-    
+
         if ($estado) {
             $query .= " AND idEstadoDenuncia = :idEstadoDenuncia";
             $params[':idEstadoDenuncia'] = $estado;
         }
-    
+
         if ($fechaHora) {
             if ($fechaHora == "asc") {
                 $query .= " ORDER BY Fecha ASC";
@@ -75,10 +76,42 @@ class Denuncia
                 $query .= " ORDER BY Fecha DESC";
             }
         }
-    
+
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+    public function getDenunciasWithFilters($tipoReporte = null, $ubicacion = null, $estado = null, $fechaHora = null)
+    {
+        $query = "SELECT * FROM Denuncias WHERE 1=1";
+        $params = [];
+
+        if ($tipoReporte) {
+            $query .= " AND idTipoDenuncia = :idTipoDenuncia";
+            $params[':idTipoDenuncia'] = $tipoReporte;
+        }
+
+        if ($ubicacion) {
+            $query .= " AND DetalleUbicacion LIKE :ubicacion";
+            $params[':ubicacion'] = "%$ubicacion%";
+        }
+
+        if ($estado) {
+            $query .= " AND idEstadoDenuncia = :idEstadoDenuncia";
+            $params[':idEstadoDenuncia'] = $estado;
+        }
+
+        if ($fechaHora) {
+            if ($fechaHora == "asc") {
+                $query .= " ORDER BY Fecha ASC";
+            } else {
+                $query .= " ORDER BY Fecha DESC";
+            }
+        }
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

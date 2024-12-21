@@ -42,7 +42,7 @@ $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1;
                         <a class="nav-link" href="denuncia.html">Reportar un Problema</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="mapaReportes.html">Mapa de Reportes</a>
+                        <a class="nav-link" href="mapaReportes.php">Mapa de Reportes</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="misReportes.php">Mis Reportes</a>
